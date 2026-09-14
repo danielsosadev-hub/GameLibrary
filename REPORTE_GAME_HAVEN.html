@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte: Aplicación Desktop "Game Haven"</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 15px;
+        }
+
+        .meta-info span {
+            margin-right: 20px;
+        }
+
+        .toc {
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        .toc h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .toc ol {
+            margin-left: 20px;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin: 40px 0;
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+
+        h3 {
+            color: #0056b3;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .feature-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .feature-box strong {
+            color: #28a745;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .code-block {
+            background-color: #f4f4f4;
+            border-left: 3px solid #333;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            border-radius: 5px;
+        }
+
+        .diagram {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.85em;
+            overflow-x: auto;
+        }
+
+        .checklist {
+            margin: 20px 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .checklist-item .check {
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .emoji {
+            margin-right: 5px;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .conclusion-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .conclusion-box h3 {
+            color: #155724;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px 5px 10px 0;
+            font-size: 0.95em;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ENCABEZADO -->
+        <div class="header">
+            <h1>🎮 GAME HAVEN</h1>
+            <p class="subtitle">Aplicación de Escritorio para Gestión de Biblioteca de Videojuegos</p>
+            <div class="meta-info">
+                <span><strong>Versión:</strong> 1.0 Release</span>
+                <span><strong>Estado:</strong> Completado ✅</span>
+                <span><strong>Fecha:</strong> 15 de Enero, 2024</span>
+            </div>
+        </div>
+
+        <!-- TABLA DE CONTENIDOS -->
+        <div class="toc">
+            <h2>📑 Tabla de Contenidos</h2>
+            <ol>
+                <li><a href="#definicion">Definición</a></li>
+                <li><a href="#caracteristicas">Características Principales</a></li>
+                <li><a href="#tecnologia">Tecnología Utilizada</a></li>
+                <li><a href="#ejemplo">Ejemplo: Flujo de Funcionamiento</a></li>
+                <li><a href="#desktop">Características de Aplicación Desktop</a></li>
+                <li><a href="#conclusion">Conclusión</a></li>
+                <li><a href="#referencias">Referencias</a></li>
+            </ol>
+        </div>
+
+        <!-- SECCIÓN 1: DEFINICIÓN -->
+        <section id="definicion">
+            <h2>1. Definición</h2>
+
+            <h3>¿Qué es Game Haven?</h3>
+            <p>
+                <strong>Game Haven</strong> es una aplicación de escritorio desarrollada en <strong>C# con .NET Framework 4.8</strong>, 
+                diseñada específicamente para gestionar y organizar una biblioteca digital personal de videojuegos. 
+                Permite a usuarios registrar, clasificar, buscar y exportar información sobre sus juegos de múltiples plataformas.
+            </p>
+
+            <h3>Propósito Principal</h3>
+            <p>
+                Game Haven resuelve la necesidad común de jugadores y coleccionistas de mantener un registro organizado 
+                y accesible de su biblioteca personal de videojuegos. Proporciona control total sobre la información de juegos, 
+                estados de progreso, calificaciones personales y notas adicionales, todo sin depender de conexión a internet.
+            </p>
+
+            <div class="feature-box">
+                <strong>✨ Capacidades Clave:</strong>
+                <ul style="margin-top: 10px; margin-bottom: 0;">
+                    <li>Registrar videojuegos de diversas plataformas</li>
+                    <li>Gestionar información completa de cada juego</li>
+                    <li>Realizar búsquedas y filtrados avanzados</li>
+                    <li>Exportar datos en formatos estándar (JSON, CSV)</li>
+                    <li>Acceder a información completamente offline</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: CARACTERÍSTICAS PRINCIPALES -->
+        <section id="caracteristicas">
+            <h2>2. Características Principales</h2>
+
+            <h3><span class="emoji">🎮</span> Gestión de Biblioteca</h3>
+            <p>Agregar, editar y eliminar juegos con información completa de forma rápida e intuitiva.</p>
+
+            <h3><span class="emoji">🔍</span> Búsqueda y Filtrado Avanzado</h3>
+            <ul>
+                <li>Buscar por título del juego</li>
+                <li>Filtrar por plataforma (PC, PS4, PS5, Xbox, Nintendo Switch, etc.)</li>
+                <li>Filtrar por género (Acción, RPG, Aventura, Estrategia, etc.)</li>
+                <li>Filtrar por estado (Pendiente, Jugando, Completado, etc.)</li>
+                <li>Mostrar solo juegos favoritos</li>
+            </ul>
+
+            <h3><span class="emoji">📊</span> Información Detallada</h3>
+            <p>Cada juego registra:</p>
+            <ul>
+                <li>Título y plataforma</li>
+                <li>Género y año de lanzamiento</li>
+                <li>Desarrollador</li>
+                <li>Estado actual del juego</li>
+                <li>Calificación personal (0-10)</li>
+                <li>Horas jugadas</li>
+                <li>Marcador de favoritos</li>
+                <li>Notas personales</li>
+                <li>Fechas de registro y modificación</li>
+            </ul>
+
+            <h3><span class="emoji">📁</span> Almacenamiento Local</h3>
+            <p>Base de datos local en formato JSON sin conexión a internet requerida.</p>
+
+            <h3><span class="emoji">📤</span> Exportación de Datos</h3>
+            <p>Exportar a JSON (estructura completa) o CSV (compatible con Excel).</p>
+
+            <h3><span class="emoji">🖼️</span> Interfaz Intuitiva</h3>
+            <p>Diseño amigable con ventanas modales y no modales para facilitar la experiencia del usuario.</p>
+        </section>
+
+        <!-- SECCIÓN 3: TECNOLOGÍA -->
+        <section id="tecnologia">
+            <h2>3. Tecnología Utilizada</h2>
+
+            <h3>Stack Tecnológico</h3>
+            <table>
+                <tr>
+                    <th>Componente</th>
+                    <th>Tecnología</th>
+                    <th>Versión</th>
+                </tr>
+                <tr>
+                    <td>Lenguaje</td>
+                    <td>C#</td>
+                    <td>7.3</td>
+                </tr>
+                <tr>
+                    <td>Framework</td>
+                    <td>.NET Framework</td>
+                    <td>4.8</td>
+                </tr>
+                <tr>
+                    <td>IDE</td>
+                    <td>Visual Studio Community</td>
+                    <td>2026 (18.10.0)</td>
+                </tr>
+                <tr>
+                    <td>UI Framework</td>
+                    <td>Windows Forms</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Almacenamiento</td>
+                    <td>JSON (Local)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>SO Destino</td>
+                    <td>Windows</td>
+                    <td>Vista o superior</td>
+                </tr>
+            </table>
+
+            <h3>Arquitectura en Capas</h3>
+            <div class="diagram">
+┌─────────────────────────────────────────┐
+│  CAPA DE PRESENTACIÓN (UI)              │
+│  ├─ MainForm (Ventana Principal)        │
+│  ├─ AddGameForm (Modal)                 │
+│  ├─ EditGameForm (Modal)                │
+│  ├─ SearchFilterForm (Modal)            │
+│  └─ ExportForm (Modal)                  │
+├─────────────────────────────────────────┤
+│  CAPA DE LÓGICA DE NEGOCIO              │
+│  ├─ ExportManager                       │
+│  └─ Helpers (Conversores)               │
+├─────────────────────────────────────────┤
+│  CAPA DE ACCESO A DATOS (DAL)           │
+│  └─ DatabaseManager                     │
+├─────────────────────────────────────────┤
+│  CAPA DE MODELOS                        │
+│  ├─ Game (Clase)                        │
+│  ├─ Platform (Enum)                     │
+│  └─ GameStatus (Enum)                   │
+├─────────────────────────────────────────┤
+│  CAPA DE ALMACENAMIENTO                 │
+│  └─ GameLibrary.json                    │
+└─────────────────────────────────────────┘
+            </div>
+
+            <h3>Estructura del Proyecto</h3>
+            <div class="code-block">
+GameLibrary/
+├── Models/
+│   ├── Game.cs
+│   ├── Platform.cs
+│   └── GameStatus.cs
+├── Data/
+│   └── DatabaseManager.cs
+├── Forms/
+│   ├── Form1.cs (MainForm)
+│   ├── AddGameForm.cs
+│   ├── EditGameForm.cs
+│   ├── SearchFilterForm.cs
+│   └── ExportForm.cs
+├── Utils/
+│   └── ExportManager.cs
+├── Program.cs
+└── GameLibrary.json
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: EJEMPLO DE FUNCIONAMIENTO -->
+        <section id="ejemplo">
+            <h2>4. Ejemplo: Flujo de Funcionamiento</h2>
+
+            <h3>Caso de Uso: Carlos Organiza su Biblioteca</h3>
+            <p>
+                Carlos es un coleccionista de videojuegos con más de 100 títulos en diferentes plataformas. 
+                Quiere organizar su biblioteca y llevar un registro de su progreso.
+            </p>
+
+            <h3>Paso 1: Iniciar Aplicación</h3>
+            <p>Carlos abre Visual Studio y ejecuta Game Haven. La aplicación:</p>
+            <ol>
+                <li>Inicializa DatabaseManager</li>
+                <li>Carga datos existentes desde GameLibrary.json</li>
+                <li>Inicializa controles de interfaz</li>
+                <li>Muestra ventana principal vacía</li>
+            </ol>
+
+            <h3>Paso 2: Agregar Primer Juego</h3>
+            <p>Carlos presiona "➕ Agregar" y completa el formulario con detalles de "The Witcher 3":</p>
+            <div class="code-block">
+Título:        The Witcher 3
+Plataforma:    PC
+Género:        RPG
+Developer:     CD Projekt Red
+Año:           2015
+Estado:        Completado
+Calificación:  9.5
+Horas:         125
+Favorito:      ☑
+Notas:         Juego extraordinario...
+            </div>
+
+            <h3>Paso 3: Buscar Juegos</h3>
+            <p>Carlos presiona "🔍 Buscar" para encontrar todos sus juegos RPG que son favoritos. 
+            El sistema filtra en tiempo real y muestra resultados coincidentes.</p>
+
+            <h3>Paso 4: Editar Información</h3>
+            <p>Carlos selecciona un juego y presiona "✏️ Editar" para actualizar su estado o notas.</p>
+
+            <h3>Paso 5: Exportar Datos</h3>
+            <p>Carlos presiona "📥 Exportar" para generar un archivo CSV de su biblioteca completa.</p>
+
+            <div class="highlight">
+                <strong>💡 Nota:</strong> Todos los datos se guardan automáticamente en GameLibrary.json 
+                después de cada operación.
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: CARACTERÍSTICAS DESKTOP -->
+        <section id="desktop">
+            <h2>5. Características de Aplicación Desktop</h2>
+
+            <h3>Checklist de Cumplimiento</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Instalación local en el equipo</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Procesamiento de datos de forma local</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Uso de base de datos local</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Interacción con dispositivos y recursos del sistema</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Funcionamiento independiente de navegador web</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Ejecución completamente en entorno local</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Uso de tecnologías específicas para escritorio</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Compatibilidad con Windows</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Uso de ventanas modales</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Uso de ventanas no modales</span>
+                </div>
+            </div>
+
+            <h3>Ventanas Modales</h3>
+            <p><strong>Requieren atención del usuario antes de continuar:</strong></p>
+            <ul>
+                <li><strong>AddGameForm:</strong> Para agregar nuevos juegos</li>
+                <li><strong>EditGameForm:</strong> Para editar juegos existentes</li>
+                <li><strong>SearchFilterForm:</strong> Para búsquedas avanzadas</li>
+                <li><strong>ExportForm:</strong> Para exportar datos</li>
+            </ul>
+
+            <h3>Ventanas No Modales</h3>
+            <p><strong>Permiten continuar interactuando con la aplicación:</strong></p>
+            <ul>
+                <li><strong>MainForm:</strong> Ventana principal con lista de juegos</li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN 6: CONCLUSIÓN -->
+        <section id="conclusion">
+            <h2>6. Conclusión</h2>
+
+            <div class="conclusion-box">
+                <h3>✅ Proyecto Completado Exitosamente</h3>
+                <p>
+                    Game Haven es una aplicación de escritorio funcional que cumple con 100% de los requisitos 
+                    de una aplicación desktop moderna. Ha sido desarrollada siguiendo principios SOLID, 
+                    arquitectura en capas, y mejores prácticas de programación.
+                </p>
+            </div>
+
+            <h3>Logros Principales</h3>
+            <ul>
+                <li>✅ Arquitectura escalable y mantenible</li>
+                <li>✅ Interfaz intuitiva y responsive</li>
+                <li>✅ Funcionalidad completa (CRUD, búsqueda, exportación)</li>
+                <li>✅ Sin dependencias externas complejas</li>
+                <li>✅ Almacenamiento seguro y accesible</li>
+                <li>✅ Rendimiento óptimo en búsquedas y filtrados</li>
+                <li>✅ Código limpio y bien estructurado</li>
+            </ul>
+
+            <h3>Ventajas Competitivas</h3>
+            <ul>
+                <li>🔒 <strong>Privacidad Total:</strong> Los datos nunca se envían a internet</li>
+                <li>⚡ <strong>Velocidad:</strong> Sin latencia de red</li>
+                <li>💾 <strong>Sostenibilidad:</strong> No requiere servidor</li>
+                <li>🎮 <strong>Facilidad de Uso:</strong> Interfaz intuitiva</li>
+                <li>📦 <strong>Portabilidad:</strong> Único archivo ejecutable</li>
+            </ul>
+
+            <h3>Posibles Mejoras Futuras</h3>
+            <ul>
+                <li>🎨 Tema oscuro/claro dinámico</li>
+                <li>📊 Dashboard con estadísticas</li>
+                <li>🖼️ Carátulas de juegos descargables</li>
+                <li>☁️ Sincronización opcional en la nube</li>
+                <li>📱 Versión móvil complementaria</li>
+                <li>🌐 Soporte multi-idioma</li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN 7: REFERENCIAS -->
+        <section id="referencias">
+            <h2>7. Referencias y Enlaces</h2>
+
+            <h3>Repositorio GitHub</h3>
+            <p>
+                <strong>URL:</strong> 
+                <a href="https://github.com/danielsosadev-hub/GameLibrary" target="_blank" class="button">
+                    Ver Repositorio →
+                </a>
+            </p>
+
+            <h3>Ubicación Local</h3>
+            <div class="code-block">
+C:\VisualProyects\GameLibrary\
+            </div>
+
+            <h3>Comandos Útiles</h3>
+            <div class="code-block">
+# Clonar repositorio
+git clone https://github.com/danielsosadev-hub/GameLibrary.git
+
+# Compilar proyecto
+dotnet build
+
+# Ejecutar aplicación
+dotnet run
+            </div>
+
+            <h3>Especificaciones Técnicas</h3>
+            <ul>
+                <li><strong>Lenguaje:</strong> C# 7.3+</li>
+                <li><strong>Framework:</strong> .NET Framework 4.8</li>
+                <li><strong>IDE:</strong> Visual Studio Community 2026</li>
+                <li><strong>UI:</strong> Windows Forms</li>
+                <li><strong>Almacenamiento:</strong> JSON Local</li>
+                <li><strong>Control de Versiones:</strong> Git</li>
+            </ul>
+
+            <h3>Información del Proyecto</h3>
+            <ul>
+                <li><strong>Versión:</strong> 1.0 Release</li>
+                <li><strong>Estado:</strong> Completado ✅</li>
+                <li><strong>Fecha de Inicio:</strong> 2024-01-15</li>
+                <li><strong>Licencia:</strong> MIT (Recomendada)</li>
+            </ul>
+        </section>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>
+                <strong>Game Haven - Aplicación de Escritorio de Biblioteca de Videojuegos</strong><br>
+                Documento Generado: 15 de Enero, 2024 | Versión del Reporte: 1.0<br>
+                © 2024 GameLibrary Development Team. Todos los derechos reservados.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
